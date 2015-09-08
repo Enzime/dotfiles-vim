@@ -1,0 +1,11 @@
+*
+/.vim/.netrwhist
+!/.gitignore.d
+!/.gitignore.d/vim
+!/.vim
+!/.vim/autoload/*
+!/.vim/ftplugin
+!/.vim/ftplugin/*
+!/.vim/plugged
+!/.vim/plugged/**
+!/.vimrc
