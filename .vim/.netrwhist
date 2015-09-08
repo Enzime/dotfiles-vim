@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/comkid/.config/feh'
+let g:netrw_dirhist_2='/data/comkid/Dev/dactyl'
+let g:netrw_dirhist_3='/usr/local/bin'
+let g:netrw_dirhist_4='/home/comkid/.vimperator'
+let g:netrw_dirhist_5='/home/comkid/fit1008/lab6'
+let g:netrw_dirhist_6='/data/comkid/Dev/euler/euler.git/data/resources'
+let g:netrw_dirhist_7='/etc/systemd/system'
+let g:netrw_dirhist_8='/home/comkid/.vim/ftplugin'
