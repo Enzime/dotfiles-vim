@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'myusuf3/numbers.vim'
-Plug 'floobits/floobits-neovim'
 call plug#end()
 
 set noshowmode
