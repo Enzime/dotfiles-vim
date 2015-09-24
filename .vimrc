@@ -4,6 +4,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'airodactyl/neovim-ranger'
 call plug#end()
 
 set noshowmode
