@@ -28,8 +28,9 @@ let g:unite_source_grep_default_opts =
 let g:unite_source_grep_recursive_opt = ''
 
 let mapleader = ","
-nnoremap <Leader>f :Unite -start-insert file/async<CR>
-nnoremap <Leader>F :Unite -start-insert file_rec/async<CR>
+nnoremap <Leader>f :Unite file/async<CR>
+nnoremap <Leader>F :Unite file_rec/async<CR>
+nnoremap <Leader>t :Unite tab<CR>
 nnoremap <Leader>y :Unite history/yank<CR>
 nnoremap <Leader>/ :Unite grep:.<CR>
 
