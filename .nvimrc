@@ -4,7 +4,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Mizauchi/vim-ranger'
+Plug 'airodactyl/neovim-ranger'
 call plug#end()
 
 set noshowmode
@@ -35,6 +35,8 @@ nnoremap <Leader>y :Unite history/yank<CR>
 nnoremap <Leader>/ :Unite grep:.<CR>
 
 set modeline
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set background=dark
 colorscheme base16-monokai
