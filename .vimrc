@@ -4,7 +4,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Mizauchi/vim-ranger'
+Plug 'Mizuchi/vim-ranger'
 call plug#end()
 
 set noshowmode
