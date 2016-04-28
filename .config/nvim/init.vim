@@ -1,10 +1,12 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'airodactyl/neovim-ranger'
+Plug 'kana/vim-operator-user'
+Plug 'haya14busa/vim-operator-flashy'
 call plug#end()
 
 set noshowmode
@@ -45,3 +47,6 @@ set cursorline
 hi linenr ctermfg=green ctermbg=black
 hi cursorline ctermfg=white ctermbg=red
 hi cursorlinenr ctermfg=white ctermbg=red
+
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
