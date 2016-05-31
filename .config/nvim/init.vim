@@ -3,11 +3,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/neoyank.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'airodactyl/neovim-ranger'
 Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
 Plug 'w0ng/vim-hybrid'
+Plug 'airodactyl/hybrid-krompus.vim'
 Plug 'floobits/floobits-neovim'
 Plug 'will133/vim-dirdiff'
 call plug#end()
@@ -41,21 +43,34 @@ let g:unite_source_rec_max_cache_files = 0
 call unite#custom#source('file_rec,file_rec/async',
                 \ 'max_candidates', 0)
 
+let g:neoyank#save_registers = ['+', '"']
+
 let mapleader = ","
-nnoremap <Leader>f :Unite file/async<CR>
-nnoremap <Leader>F :Unite file_rec/async<CR>
-nnoremap <Leader>R :source $MYVIMRC<CR>
-nnoremap <Leader>t :Unite tab<CR>
-nnoremap <Leader>y :Unite history/yank<CR>
+
+
+" Unite bindings
+nnoremap <Leader>f :Unite -start-insert file/async<CR>
+nnoremap <Leader>F :Unite -start-insert file_rec/async<CR>
+nnoremap <Leader>t :Unite -start-insert tab<CR>
+nnoremap <Leader>y :Unite history/yank -default-action=yank<CR>
+nnoremap <Leader>p :Unite history/yank<CR>
 nnoremap <Leader>/ :Unite grep:.<CR>
+
+nmap <Leader>Y "+yy
+
+nnoremap <Leader>h :noh<CR>
+nnoremap <Leader>E :tabedit $MYVIMRC<CR>
+nnoremap <Leader>R :source $MYVIMRC<CR>
+
+nnoremap <Leader>pi :PlugInstall<CR>
+nnoremap <Leader>pu :PlugUpdate<CR>
 
 set modeline
 
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 set background=dark
-let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+colorscheme hybrid-krompus
 
 " set cursorline
 hi linenr ctermfg=green ctermbg=black
@@ -67,22 +82,3 @@ nmap Y <Plug>(operator-flashy)$
 
 noremap <C-a> gT
 noremap <C-f> gt
-
-function! ToggleMovement(firstOp, thenOp)
-  let pos = getpos('.')
-  execute "normal! " . a:firstOp
-  if pos == getpos('.')
-    execute "normal! " . a:thenOp
-  endif
-endfunction
-
-" The original carat 0 swap
-nnoremap <silent> 0 :call ToggleMovement('^', '0')<CR>
-
-" How about H and L
-nnoremap <silent> H :call ToggleMovement('H', 'L')<CR>
-nnoremap <silent> L :call ToggleMovement('L', 'H')<CR>
-
-" How about G and gg
-nnoremap <silent> G :call ToggleMovement('G', 'gg')<CR>
-nnoremap <silent> gg :call ToggleMovement('gg', 'G')<CR>
