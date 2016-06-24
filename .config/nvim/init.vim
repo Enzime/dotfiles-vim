@@ -12,6 +12,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'airodactyl/hybrid-krompus.vim'
 Plug 'floobits/floobits-neovim'
 Plug 'will133/vim-dirdiff'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 set noshowmode
