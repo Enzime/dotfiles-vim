@@ -83,6 +83,10 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 
 " Lines before page starts scrolling
 set scrolloff=1
+set sidescroll=1
+
+" Disable wrapping of lines on display
+set nowrap
 
 " Unite settings
 let g:unite_source_history_yank_enable = 1
