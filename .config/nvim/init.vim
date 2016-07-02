@@ -46,6 +46,20 @@ call plug#end()
 set noshowmode
 set laststatus=2
 
+" Show current git branch in lightline
+let g:lightline = {
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste'],
+    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component': {
+    \   'fugitive': '%{fugitive#head()}'
+    \ },
+    \ 'component_visible_condition': {
+    \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+    \ }
+\ }
+
 " Show syntax highlighting
 syntax on
 
@@ -95,7 +109,7 @@ nnoremap <Leader>y :Unite history/yank -default-action=yank<CR>
 nnoremap <Leader>p :Unite history/yank<CR>
 nnoremap <Leader>/ :Unite grep:.<CR>
 
-" Remove highlight
+" Remove find highlight
 nnoremap <Leader>h :noh<CR>
 
 " Edit/Reload nvimrc
@@ -117,12 +131,21 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 set background=dark
 colorscheme hybrid-krompus
 
-" set cursorline
-hi linenr ctermfg=green ctermbg=black
-hi cursorline ctermfg=white ctermbg=red
-hi cursorlinenr ctermfg=white ctermbg=red
+" Show 80 char ruler
+set cc=80
+" hi ColorColumn ctermbg=10 guibg=#c1ff05
 
-" customize colour of vim-operator-flashy
+" Highlight text going over 80 characters
+highlight OverLength ctermfg=black ctermbg=darkred guifg=#0a0a0a guibg=#ff3f3d
+match OverLength /\%>80v.\+/
+
+" Highlight current line
+" set cursorline
+" hi linenr ctermfg=green ctermbg=black
+" hi cursorline ctermfg=white ctermbg=red
+" hi cursorlinenr ctermfg=white ctermbg=red
+
+" Customize colour of vim-operator-flashy
 hi Flashy ctermbg=5 guibg=#ff0084
 
 " Operator remapping
