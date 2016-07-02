@@ -5,10 +5,14 @@ Plug 'airodactyl/hybrid-krompus.vim'
 " Status bar
 Plug 'itchyny/lightline.vim'
 
-" Selector
+" unite.vim 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neoyank.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+
+" fzf.vim
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -88,7 +92,7 @@ set sidescroll=1
 " Disable wrapping of lines on display
 set nowrap
 
-" Unite settings
+" unite.vim settings
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts =
@@ -105,13 +109,17 @@ let g:neoyank#save_registers = ['+', '"']
 " Leader key is better suited for , rather than \
 let mapleader = ","
 
-" Unite bindings
-nnoremap <Leader>f :Unite -start-insert file/async<CR>
-nnoremap <Leader>F :Unite -start-insert file_rec/async<CR>
+" unite.vim bindings
+" nnoremap <Leader>f :Unite -start-insert file/async<CR>
+" nnoremap <Leader>F :Unite -start-insert file_rec/async<CR>
 nnoremap <Leader>t :Unite -start-insert tab<CR>
 nnoremap <Leader>y :Unite history/yank -default-action=yank<CR>
 nnoremap <Leader>p :Unite history/yank<CR>
 nnoremap <Leader>/ :Unite grep:.<CR>
+
+" fzf.vim bindings
+nnoremap <Leader>f :FZF<CR>
+" nnoremap <Leader>/ :Ag<CR>
 
 " Remove find highlight
 nnoremap <Leader>h :noh<CR>
