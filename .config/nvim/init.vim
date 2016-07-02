@@ -32,6 +32,9 @@ Plug 'tpope/vim-sleuth'
 " Commenting
 Plug 'tpope/vim-commentary'
 
+" dank repeatability
+Plug 'tpope/vim-repeat'
+
 " floobits
 Plug 'floobits/floobits-neovim'
 
@@ -39,6 +42,7 @@ Plug 'floobits/floobits-neovim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
+" Lightline :)
 set noshowmode
 set laststatus=2
 
@@ -80,7 +84,7 @@ call unite#custom#source('file_rec,file_rec/async',
 
 let g:neoyank#save_registers = ['+', '"']
 
-
+" Leader key is better suited for , rather than \
 let mapleader = ","
 
 " Unite bindings
@@ -102,10 +106,14 @@ nnoremap <Leader>R :source $MYVIMRC<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
 
+" Use modelines
 set modeline
 
+" Replace with https://github.com/neovim/neovim/pull/4690
+" when new neovim releases
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
+" Use hybrid-krompus.vim :)
 set background=dark
 colorscheme hybrid-krompus
 
@@ -114,9 +122,12 @@ hi linenr ctermfg=green ctermbg=black
 hi cursorline ctermfg=white ctermbg=red
 hi cursorlinenr ctermfg=white ctermbg=red
 
+" customize colour of vim-operator-flashy
+hi Flashy ctermbg=5 guibg=#ff0084
+
 " Operator remapping
-nmap y <Plug>(operator-flashy)
-nmap Y "+<Plug>(operator-flashy)
+map y <Plug>(operator-flashy)
+map Y "+<Plug>(operator-flashy)
 nmap cm <Plug>Commentary
 
 " Add tab changing bindings
@@ -125,3 +136,6 @@ noremap <C-f> gt
 
 " Add scroll page binding
 noremap <C-s> <C-u>
+
+" Make terminal mode magical
+let g:terminal_scrollback_buffer_size = 100000
