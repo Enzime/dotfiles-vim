@@ -44,11 +44,20 @@ Plug 'floobits/floobits-neovim'
 
 " Syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Remove easy motions :(
+Plug 'takac/vim-hardtime'
+
+" sneak.vim
+Plug 'justinmk/vim-sneak'
 call plug#end()
 
 " Lightline :)
 set noshowmode
 set laststatus=2
+
+" Everything just got HARDER
+let g:hardtime_default_on = 1
 
 " Show current git branch in lightline
 let g:lightline = {
