@@ -134,6 +134,7 @@ nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>h :noh<CR>
 
 " Edit/Reload nvimrc
+nnoremap <Leader>e :edit $MYVIMRC<CR>
 nnoremap <Leader>E :tabedit $MYVIMRC<CR>
 nnoremap <Leader>R :source $MYVIMRC<CR>
 
@@ -153,12 +154,12 @@ set background=dark
 colorscheme hybrid-krompus
 
 " Show 80 char ruler
-set cc=80
+" set colorcolumn=80
 " hi ColorColumn ctermbg=10 guibg=#c1ff05
 
 " Highlight text going over 80 characters
-highlight OverLength ctermfg=black ctermbg=darkred guifg=#0a0a0a guibg=#ff3f3d
-match OverLength /\%>80v.\+/
+" hi OverLength ctermfg=black ctermbg=darkred guifg=#0a0a0a guibg=#ff3f3d
+" match OverLength /\%>80v.\+/
 
 " Highlight current line
 " set cursorline
@@ -183,3 +184,25 @@ noremap <C-s> <C-u>
 
 " Make terminal mode magical
 let g:terminal_scrollback_buffer_size = 100000
+
+" Toggle eighty character indicator
+let g:eighty = 0
+
+fun! ToggleEighty()
+    if g:eighty
+        let g:eighty = 0
+        " Remove vertical ruler
+        set colorcolumn=0
+        " Remove highlight after 80 chars
+        hi OverLength ctermfg=white ctermbg=black guifg=#fff5ed guibg=#0d0c0c
+    else
+        let g:eighty = 1
+        " Show vertical ruler at 80 chars
+        set colorcolumn=80
+        " Highlight all characters after 80
+        hi OverLength ctermfg=black ctermbg=darkred guifg=#0a0a0a guibg=#ff3f3d
+        match OverLength /\%>80v.\+/
+    endif
+endfun
+
+map <Leader>l :call ToggleEighty()<CR>
