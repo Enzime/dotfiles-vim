@@ -50,6 +50,9 @@ Plug 'takac/vim-hardtime'
 
 " sneak.vim
 Plug 'justinmk/vim-sneak'
+
+" Add better search highlighting
+Plug 'haya14busa/incsearch.vim'
 call plug#end()
 
 " Lightline :)
@@ -84,11 +87,11 @@ set number
 set relativenumber
 
 " Replaced with sleuth.vim
-" set expandtab
-" set softtabstop=4
-" set shiftwidth=0
-" set tabstop=4
-" set autoindent
+set expandtab
+set softtabstop=4
+set shiftwidth=0
+set tabstop=4
+set autoindent
 
 " Show special whitespacing chars
 set list
@@ -177,7 +180,7 @@ nmap cm <Plug>Commentary
 
 " Add tab changing bindings
 map <C-a> gT
-noremap <C-f> gt
+map <C-f> gt
 
 " Add scroll page binding
 noremap <C-s> <C-u>
@@ -185,24 +188,31 @@ noremap <C-s> <C-u>
 " Make terminal mode magical
 let g:terminal_scrollback_buffer_size = 100000
 
-" Toggle eighty character indicator
-let g:eighty = 0
-
+" Function for toggling line length indicator
 fun! ToggleEighty()
-    if g:eighty
-        let g:eighty = 0
-        " Remove vertical ruler
-        set colorcolumn=0
-        " Remove highlight after 80 chars
-        hi OverLength ctermfg=white ctermbg=black guifg=#fff5ed guibg=#0d0c0c
-    else
+    if !exists('g:eighty') || !g:eighty
         let g:eighty = 1
         " Show vertical ruler at 80 chars
         set colorcolumn=80
         " Highlight all characters after 80
         hi OverLength ctermfg=black ctermbg=darkred guifg=#0a0a0a guibg=#ff3f3d
         match OverLength /\%>80v.\+/
+    else
+        let g:eighty = 0
+        " Remove vertical ruler
+        set colorcolumn=0
+        " Remove highlight after 80 chars
+        hi OverLength ctermfg=white ctermbg=black guifg=#fff5ed guibg=#0d0c0c
     endif
 endfun
 
+" Enable line length indicator
+call ToggleEighty()
+
+" Toggle line length indicator binding
 map <Leader>l :call ToggleEighty()<CR>
+
+" incsearch.vim bindings
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
