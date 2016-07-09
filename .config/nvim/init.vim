@@ -17,7 +17,7 @@ Plug 'junegunn/fzf.vim'
 " git
 Plug 'tpope/vim-fugitive'
 
-" ranger as folder explorre
+" ranger as folder explorer
 Plug 'airodactyl/neovim-ranger'
 
 " Show yank visually
@@ -39,8 +39,18 @@ Plug 'tpope/vim-commentary'
 " dank repeatability
 Plug 'tpope/vim-repeat'
 
+fun! DoRemote(arg)
+    UpdateRemotePlugins
+endfun
+
 " floobits
-Plug 'floobits/floobits-neovim'
+" Plug 'floobits/floobits-neovim', { 'do': function('DoRemote') }
+
+" async completion for neovim
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
+" jedi source for deoplete.nvim
+Plug 'zchee/deoplete-jedi'
 
 " Syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -202,7 +212,7 @@ fun! ToggleEighty()
         " Remove vertical ruler
         set colorcolumn=0
         " Remove highlight after 80 chars
-        hi OverLength ctermfg=white ctermbg=black guifg=#fff5ed guibg=#0d0c0c
+        hi clear OverLength
     endif
 endfun
 
@@ -216,3 +226,6 @@ map <Leader>l :call ToggleEighty()<CR>
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" Enable deoplete
+let g:deoplete#enable_at_startup = 1
