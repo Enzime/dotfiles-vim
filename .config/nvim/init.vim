@@ -7,8 +7,10 @@ Plug 'itchyny/lightline.vim'
 
 " unite.vim 
 Plug 'Shougo/unite.vim'
-Plug 'Shougo/neoyank.vim'
+" Plug 'Shougo/neoyank.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'rstacruz/vim-fastunite'
+Plug 'tsukkee/unite-tag'
 
 " fzf.vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -63,6 +65,12 @@ Plug 'justinmk/vim-sneak'
 
 " Add better search highlighting
 Plug 'haya14busa/incsearch.vim'
+
+" tag ALL the things
+Plug 'ludovicchabant/vim-gutentags'
+
+" display colours :)
+Plug 'ap/vim-css-color'
 call plug#end()
 
 " Lightline :)
@@ -227,5 +235,17 @@ map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
+" fugitive.vim bindings
+map <Leader>gs :Gstatus<CR>
+map <Leader>gd :Gdiff<CR>
+map <Leader>gb :Gblame<CR>
+map <Leader>g<SPACE> :Git<SPACE>
+
 " Enable deoplete
 let g:deoplete#enable_at_startup = 1
+
+" Beautify JSON
+map <Leader>j :%!python -m json.tool<CR>
+
+" Confirm quit rather than :q!
+map ZQ :q<CR>
