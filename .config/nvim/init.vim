@@ -200,6 +200,12 @@ nmap cm <Plug>Commentary
 map <C-a> gT
 map <C-f> gt
 
+" Add window split bindings
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " Add scroll page binding
 noremap <C-s> <C-u>
 
@@ -249,3 +255,6 @@ map <Leader>j :%!python -m json.tool<CR>
 
 " Confirm quit rather than :q!
 map ZQ :q<CR>
+
+" Disable Ex mode
+map Q <Nop>
