@@ -258,3 +258,9 @@ map ZQ :q<CR>
 
 " Disable Ex mode
 map Q <Nop>
+
+" Taken from my zle/readline bindings :)
+imap <C-h> <C-Left>
+" imap <C-j> <Down>
+" imap <C-k> <Up>
+imap <C-l> <C-Right>
