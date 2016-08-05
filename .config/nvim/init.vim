@@ -54,7 +54,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " jedi source for deoplete.nvim
 Plug 'zchee/deoplete-jedi'
 
-" Syntax highlighting
+" TernJS source for deoplete.nvim
+Plug 'carlitux/deoplete-ternjs'
+
+" C++ syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Remove easy motions :(
@@ -71,6 +74,15 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " display colours :)
 Plug 'ap/vim-css-color'
+
+" Show marks on the sidebar
+Plug 'kshenoy/vim-signature'
+
+" Javascript highlighting
+Plug 'pangloss/vim-javascript'
+
+" JSX highlighting
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 " Lightline :)
@@ -264,3 +276,8 @@ imap <C-h> <C-Left>
 " imap <C-j> <Down>
 " imap <C-k> <Up>
 imap <C-l> <C-Right>
+
+cmap <C-h> <C-Left>
+cmap <C-j> <Down>
+cmap <C-k> <Up>
+cmap <C-l> <C-Right>
