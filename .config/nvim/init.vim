@@ -83,6 +83,9 @@ Plug 'pangloss/vim-javascript'
 
 " JSX highlighting
 Plug 'mxw/vim-jsx'
+
+" Magically align all the things
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " Lightline :)
