@@ -1,20 +1,16 @@
 call plug#begin('~/.config/nvim/plugged')
+fun! DoRemote(arg)
+    UpdateRemotePlugins
+endfun
+
 " Color scheme
 Plug 'airodactyl/hybrid-krompus.vim'
 
 " Status bar
 Plug 'itchyny/lightline.vim'
 
-" unite.vim 
-Plug 'Shougo/unite.vim'
-" Plug 'Shougo/neoyank.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'rstacruz/vim-fastunite'
-Plug 'tsukkee/unite-tag'
-
-" fzf.vim
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" denite.nvim
+Plug 'Shougo/denite.nvim', { 'do': function('DoRemote') }
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -41,13 +37,6 @@ Plug 'tpope/vim-commentary'
 " dank repeatability
 Plug 'tpope/vim-repeat'
 
-fun! DoRemote(arg)
-    UpdateRemotePlugins
-endfun
-
-" floobits
-" Plug 'floobits/floobits-neovim', { 'do': function('DoRemote') }
-
 " async completion for neovim
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
@@ -66,8 +55,9 @@ Plug 'takac/vim-hardtime'
 " sneak.vim
 Plug 'justinmk/vim-sneak'
 
+" Currently broken :(
 " Add better search highlighting
-Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/incsearch.vim'
 
 " tag ALL the things
 Plug 'ludovicchabant/vim-gutentags'
@@ -137,34 +127,26 @@ set sidescroll=1
 " Disable wrapping of lines on display
 set nowrap
 
-" unite.vim settings
-let g:unite_source_history_yank_enable = 1
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
+" denite.nvim settings
+call denite#custom#var('file_rec', 'command',
+\ ['rg', '--files', '--glob', '!.git', ''])
 
-let g:unite_source_rec_max_cache_files = 0
-call unite#custom#source('file_rec,file_rec/async',
-                \ 'max_candidates', 0)
-
-let g:neoyank#save_registers = ['+', '"']
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts',
+                \ ['--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
 " Leader key is better suited for , rather than \
 let mapleader = ","
 
 " unite.vim bindings
-" nnoremap <Leader>f :Unite -start-insert file/async<CR>
-" nnoremap <Leader>F :Unite -start-insert file_rec/async<CR>
-nnoremap <Leader>t :Unite -start-insert tab<CR>
-nnoremap <Leader>y :Unite history/yank -default-action=yank<CR>
-nnoremap <Leader>p :Unite history/yank<CR>
-nnoremap <Leader>/ :Unite grep:.<CR>
-
-" fzf.vim bindings
-nnoremap <Leader>f :FZF<CR>
-" nnoremap <Leader>/ :Ag<CR>
+nnoremap <Leader>f :Denite file_rec<CR>
+nnoremap <Leader>F :Denite -default-action=tabopen file_rec<CR>
+nnoremap <Leader>t :Denite tab<CR>
+nnoremap <Leader>/ :Denite grep:.<CR>
 
 " Remove find highlight
 nnoremap <Leader>h :noh<CR>
@@ -188,20 +170,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 " Use hybrid-krompus.vim :)
 set background=dark
 colorscheme hybrid-krompus
-
-" Show 80 char ruler
-" set colorcolumn=80
-" hi ColorColumn ctermbg=10 guibg=#c1ff05
-
-" Highlight text going over 80 characters
-" hi OverLength ctermfg=black ctermbg=darkred guifg=#0a0a0a guibg=#ff3f3d
-" match OverLength /\%>80v.\+/
-
-" Highlight current line
-" set cursorline
-" hi linenr ctermfg=green ctermbg=black
-" hi cursorline ctermfg=white ctermbg=red
-" hi cursorlinenr ctermfg=white ctermbg=red
 
 " Customize colour of vim-operator-flashy
 hi Flashy ctermbg=5 guibg=#ff0084
@@ -251,10 +219,11 @@ call ToggleEighty()
 " Toggle line length indicator binding
 map <Leader>l :call ToggleEighty()<CR>
 
+" Currently broken :(
 " incsearch.vim bindings
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" map / <Plug>(incsearch-forward)
+" map ? <Plug>(incsearch-backward)
+" map g/ <Plug>(incsearch-stay)
 
 " fugitive.vim bindings
 map <Leader>gs :Gstatus<CR>
@@ -284,3 +253,6 @@ cmap <C-h> <C-Left>
 cmap <C-j> <Down>
 cmap <C-k> <Up>
 cmap <C-l> <C-Right>
+
+inoremap jj <Esc>
+inoremap <Esc> <nop>
