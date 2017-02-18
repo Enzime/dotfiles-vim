@@ -254,5 +254,6 @@ cmap <C-j> <Down>
 cmap <C-k> <Up>
 cmap <C-l> <C-Right>
 
-inoremap jj <Esc>
+" Exiting Insert mode is a joke
+inoremap jk <Esc>
 inoremap <Esc> <nop>
