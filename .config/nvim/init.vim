@@ -147,6 +147,8 @@ let mapleader = ","
 " unite.vim bindings
 nnoremap <Leader>f :Denite -mode=normal -default-action=open file_rec<CR>
 nnoremap <Leader>F :Denite -mode=normal -default-action=tabopen file_rec<CR>
+nnoremap <Leader>s :Denite -mode=normal -default-action=split file_rec<CR>
+nnoremap <Leader>v :Denite -mode=normal -default-action=vsplit file_rec<CR>
 nnoremap <Leader>t :Denite -mode=normal -default-action=open tab<CR>
 nnoremap <Leader>/ :Denite -mode=normal -default-action=open -no-empty grep:.<CR>
 
