@@ -55,9 +55,8 @@ Plug 'takac/vim-hardtime'
 " sneak.vim
 Plug 'justinmk/vim-sneak'
 
-" Currently broken :(
 " Add better search highlighting
-" Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch.vim'
 
 " tag ALL the things
 Plug 'ludovicchabant/vim-gutentags'
@@ -219,11 +218,10 @@ call ToggleEighty()
 " Toggle line length indicator binding
 map <Leader>l :call ToggleEighty()<CR>
 
-" Currently broken :(
 " incsearch.vim bindings
-" map / <Plug>(incsearch-forward)
-" map ? <Plug>(incsearch-backward)
-" map g/ <Plug>(incsearch-stay)
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " fugitive.vim bindings
 map <Leader>gs :Gstatus<CR>
