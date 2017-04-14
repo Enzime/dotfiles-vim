@@ -257,9 +257,5 @@ cmap <C-j> <Down>
 cmap <C-k> <Up>
 cmap <C-l> <C-Right>
 
-" Exiting Insert mode is a joke
-inoremap jk <Esc>
-inoremap <Esc> <nop>
-
 " Open the undo tree from gundo.vim
 nnoremap <Leader>G :GundoToggle<CR>
