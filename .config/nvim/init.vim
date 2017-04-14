@@ -75,6 +75,9 @@ Plug 'mxw/vim-jsx'
 
 " Magically align all the things
 Plug 'junegunn/vim-easy-align'
+
+" Visualizes your vim undo tree
+Plug 'sjl/gundo.vim'
 call plug#end()
 
 " Lightline :)
@@ -255,3 +258,6 @@ cmap <C-l> <C-Right>
 " Exiting Insert mode is a joke
 inoremap jk <Esc>
 inoremap <Esc> <nop>
+
+" Open the undo tree from gundo.vim
+nnoremap <Leader>G :GundoToggle<CR>
