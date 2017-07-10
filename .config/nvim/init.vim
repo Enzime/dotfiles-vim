@@ -78,6 +78,12 @@ Plug 'junegunn/vim-easy-align'
 
 " Visualizes your vim undo tree
 Plug 'sjl/gundo.vim'
+
+" Automatic linter
+Plug 'w0rp/ale'
+
+" Bracket wrapping
+Plug 'FooSoft/vim-argwrap'
 call plug#end()
 
 " Lightline :)
@@ -259,3 +265,6 @@ cmap <C-l> <C-Right>
 
 " Open the undo tree from gundo.vim
 nnoremap <Leader>G :GundoToggle<CR>
+
+" Toggle argument wrapping
+nnoremap <silent> <Leader>a :ArgWrap<CR>
