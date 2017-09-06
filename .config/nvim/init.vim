@@ -151,6 +151,7 @@ call denite#custom#var('grep', 'final_opts', [])
 let mapleader = ","
 
 " unite.vim bindings
+nnoremap <Leader>b :Denite -mode=normal -default-action=open buffer<CR>
 nnoremap <Leader>f :Denite -mode=normal -default-action=open file_rec<CR>
 nnoremap <Leader>F :Denite -mode=normal -default-action=tabopen file_rec<CR>
 nnoremap <Leader>s :Denite -mode=normal -default-action=split file_rec<CR>
