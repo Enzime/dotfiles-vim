@@ -59,7 +59,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'haya14busa/incsearch.vim'
 
 " tag ALL the things
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " display colours :)
 Plug 'ap/vim-css-color'
