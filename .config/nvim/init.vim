@@ -58,6 +58,9 @@ Plug 'justinmk/vim-sneak'
 " Add better search highlighting
 Plug 'haya14busa/incsearch.vim'
 
+" Highlight current word under cursor
+Plug 'RRethy/vim-illuminate'
+
 " tag ALL the things
 " Plug 'ludovicchabant/vim-gutentags'
 
@@ -84,6 +87,12 @@ Plug 'w0rp/ale'
 
 " Bracket wrapping
 Plug 'FooSoft/vim-argwrap'
+
+" Support for Nix files
+Plug 'LnL7/vim-nix'
+
+" Track all the dollaridoos
+Plug 'nathangrigg/vim-beancount'
 call plug#end()
 
 " Lightline :)
@@ -269,3 +278,6 @@ nnoremap <Leader>G :GundoToggle<CR>
 
 " Toggle argument wrapping
 nnoremap <silent> <Leader>a :ArgWrap<CR>
+
+" Illuminate matches like visual
+hi link illuminatedWord Visual
