@@ -52,17 +52,14 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 " Remove easy motions :(
 Plug 'takac/vim-hardtime'
 
-" sneak.vim
-Plug 'justinmk/vim-sneak'
+" No more cat-like tread
+Plug 'rhysd/clever-f.vim'
 
 " Add better search highlighting
 Plug 'haya14busa/incsearch.vim'
 
 " Highlight current word under cursor
 Plug 'RRethy/vim-illuminate'
-
-" tag ALL the things
-" Plug 'ludovicchabant/vim-gutentags'
 
 " display colours :)
 Plug 'ap/vim-css-color'
