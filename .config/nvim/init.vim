@@ -90,6 +90,9 @@ Plug 'LnL7/vim-nix'
 
 " Track all the dollaridoos
 Plug 'nathangrigg/vim-beancount'
+
+" Smort contracts
+Plug 'tomlion/vim-solidity'
 call plug#end()
 
 " Lightline :)
