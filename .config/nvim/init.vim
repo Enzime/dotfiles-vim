@@ -281,3 +281,7 @@ nnoremap <silent> <Leader>a :ArgWrap<CR>
 
 " Illuminate matches like visual
 hi link illuminatedWord Visual
+
+" Persistent undo :O
+set undofile
+set undodir=$HOME/.config/nvim/undo
