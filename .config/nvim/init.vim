@@ -49,9 +49,6 @@ Plug 'carlitux/deoplete-ternjs'
 " C++ syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
 
-" Remove easy motions :(
-Plug 'takac/vim-hardtime'
-
 " No more cat-like tread
 Plug 'rhysd/clever-f.vim'
 
@@ -99,9 +96,6 @@ call plug#end()
 set noshowmode
 set laststatus=2
 
-" Everything just got HARDER
-let g:hardtime_default_on = 1
-
 " Show current git branch in lightline
 let g:lightline = {
     \ 'active': {
@@ -145,8 +139,8 @@ set sidescroll=1
 set nowrap
 
 " denite.nvim settings
-call denite#custom#var('file_rec', 'command',
-\ ['rg', '--files', '--glob', '!.git', ''])
+call denite#custom#var('file/rec', 'command',
+\ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
 
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts',
@@ -159,14 +153,14 @@ call denite#custom#var('grep', 'final_opts', [])
 " Leader key is better suited for , rather than \
 let mapleader = ","
 
-" unite.vim bindings
-nnoremap <Leader>b :Denite -mode=normal -default-action=open buffer<CR>
-nnoremap <Leader>f :Denite -mode=normal -default-action=open file_rec<CR>
-nnoremap <Leader>F :Denite -mode=normal -default-action=tabopen file_rec<CR>
-nnoremap <Leader>s :Denite -mode=normal -default-action=split file_rec<CR>
-nnoremap <Leader>v :Denite -mode=normal -default-action=vsplit file_rec<CR>
-nnoremap <Leader>t :Denite -mode=normal -default-action=open tab<CR>
-nnoremap <Leader>/ :Denite -mode=normal -default-action=open -no-empty grep:.<CR>
+" denite.vim bindings
+nnoremap <Leader>b :Denite -default-action=open buffer<CR>
+nnoremap <Leader>f :Denite -default-action=open file/rec<CR>
+nnoremap <Leader>F :Denite -default-action=tabopen file/rec<CR>
+nnoremap <Leader>s :Denite -default-action=split file/rec<CR>
+nnoremap <Leader>v :Denite -default-action=vsplit file/rec<CR>
+nnoremap <Leader>t :Denite -default-action=open tab<CR>
+nnoremap <Leader>/ :Denite -default-action=open -no-empty grep:.<CR>
 
 " Remove find highlight
 nnoremap <Leader>h :noh<CR>
